@@ -1,6 +1,6 @@
 # customer-invite
 
-``` Below commands to setup and run project
+Below commands to setup and run project
 
 $ npm install
 
