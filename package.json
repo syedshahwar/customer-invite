@@ -4,7 +4,7 @@
   "description": "Invite Nearby Customers",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
+    "build": "rimraf ./dist && rimraf ./coverage && tsc",
     "start": "node ./dist/main.js",
     "test": "jest",
     "test:ci": "jest ./src --coverage"
