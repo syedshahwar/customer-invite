@@ -7,3 +7,7 @@ $ npm install
 $ npm run build
 
 $ npm start
+
+Run the unit test
+
+$ npm test
