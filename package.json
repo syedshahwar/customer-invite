@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "start": "node ./dist/main.js",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest ./src --coverage"
   },
   "author": "Syed Shahwar Shah",
   "license": "ISC",
