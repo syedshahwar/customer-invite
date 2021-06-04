@@ -20,7 +20,7 @@ export class Main {
 
     const greatCricle: GreatCircle = new GreatCircle();
     this.customers.forEach(customer =>{
-        const isInvited: boolean = greatCricle.isInvited(customer.id, customer.lat, customer.long);
+        const isInvited: boolean = greatCricle.isInvited(customer.lat, customer.long);
         if (isInvited)
           this.invitedCustomerIds.push(customer.id);
     });

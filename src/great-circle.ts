@@ -15,7 +15,7 @@ export class GreatCircle {
         this.inviteRadius = Constants.inviteRadius;
     }
 
-    public isInvited(id: string, lat: number, long: number): boolean{
+    public isInvited(lat: number, long: number): boolean{
             
         const dLat: number = this.deg2rad(lat-this.refLat); 
         const dLon: number = this.deg2rad(long-this.refLong); 
