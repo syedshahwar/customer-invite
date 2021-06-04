@@ -8,6 +8,12 @@ $ npm run build
 
 $ npm start
 
+
 Run the unit test
 
 $ npm test
+
+
+Test coverage
+
+$ npm run test:ci
