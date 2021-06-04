@@ -13,31 +13,38 @@ export class FileReader {
     }
 
     public async readCustomers(filePath: string): Promise<customer[]>{
-        
-        const data = await fs.readFile(path.resolve(__dirname, filePath), 'utf8');
-        const customersLine: string[] = data.split(/\r?\n/);
 
-        customersLine.forEach((line) => {
+        try {
+            const data = await fs.readFile(path.resolve(__dirname, filePath), 'utf8');
+            const customersLine: string[] = data.split(/\r?\n/);
 
-            const values: string[] = line.split(',');
-            const id: string = values[0].split(':')[1].trim();
-            const lat: string = values[1].split(':')[1].trim();
-            const long: string = values[2].split(':')[1].trim();
+            customersLine.forEach((line) => {
 
-            if (!validator.isUUID(id) || !validator.isNumeric(lat) || !validator.isNumeric(long)){
-                console.log("*** Warning Invalid Customer data: ", id, lat, long);
-            }
-            else {
-                const customer: customer = {
-                    id,
-                    lat: parseFloat(lat),
-                    long:  parseFloat(long),
+                const values: string[] = line.split(',');
+                const id: string = values[0].split(':')[1].trim();
+                const lat: string = values[1].split(':')[1].trim();
+                const long: string = values[2].split(':')[1].trim();
+
+                if (!validator.isUUID(id) || !validator.isNumeric(lat) || !validator.isNumeric(long)){
+                    console.log("*** Warning Invalid Customer data: ", id, lat, long);
                 }
-    
-                this.customers.push(customer)
-            }
+                else {
+                    const customer: customer = {
+                        id,
+                        lat: parseFloat(lat),
+                        long:  parseFloat(long),
+                    }
+        
+                    this.customers.push(customer)
+                }
 
-        });
-        return this.customers;
+            });
+            return this.customers;
+        }
+        catch(error){
+            console.log(error);
+            return [];
+        }
+        
     }
 }
